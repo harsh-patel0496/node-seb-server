@@ -55,18 +55,20 @@ app.get('/weather',(req,res) => {
                 error: error
             })
         }
+
         weather(cord,(error,data) => {
             if(error){
                 return res.send({
                     error: error
                 })
             } 
-                
             res.send({
-                    forecast: 'It is currently ' + data.currently.temperature + ' Out now and there is ' + data.currently.precipProbability + ' chances of rain',
-                    location: req.query.address,
-                    address: req.query.address
-            })
+                forecast: 'It is currently ' + data.currently.temperature + ' Out now and there is ' + data.currently.precipProbability + ' chances of rain. and the wind speed is ' + data.currently.windSpeed + ' km/h',
+                location: req.query.address,
+                address: req.query.address,
+                data:data
+        })
+           
             
         })
         
