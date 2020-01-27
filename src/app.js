@@ -11,6 +11,7 @@ const rootPath = path.join(__dirname,'../public')
 const viewPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname,'../templates/partials')
 
+const port = process.env.PORT || 3000
 
 // Setup handlebars engine and views loctions
 app.set('view engine','hbs')
@@ -88,7 +89,7 @@ app.get('*',(req,res) => {
         name:'Harsh Patel'
     })
 })
-app.listen(3000, () => {
-    console.log('server is up onn port 3000.')
+app.listen(port, () => {
+    console.log(`server is up onn port ${port}.`)
 })
 
